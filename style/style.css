@@ -1,0 +1,8 @@
+.continer{
+    width: fit-content;
+    height: fit-content;
+    padding: 25px;
+    border:  3px dotted rgb(255, 56, 56);
+    background-color: rgb(92, 92, 92);
+    color: white;
+}
