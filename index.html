@@ -1,54 +1,63 @@
 <!DOCTYPE html>
-<html lang="ar" dir="auto">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:;">
-    <title>Wail Houari | Web Developer</title>
-    <!-- Google Fonts: Poppins -->
+    <meta name="description" content="Personal profile card for Wail Houari, an aspiring backend developer.">
+    <!-- Style CSP restricts resource origins to prevent unauthorized CSS execution -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:;">
+    <title>Wail Houari | Aspiring Backend Developer</title>
+    <!-- Preconnecting saves round-trip times during DNS lookup and TLS negotiation -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="images/avatar-placeholder.svg">
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-    <!-- Ambient Background Lighting (Glassmorphism Depth) -->
-    <div class="circle circle-1"></div>
-    <div class="circle circle-2"></div>
-    <div class="circle circle-3"></div>
+    <!-- aria-hidden hides purely decorative background blur shapes from assistive tech -->
+    <div class="circle circle-1" aria-hidden="true"></div>
+    <div class="circle circle-2" aria-hidden="true"></div>
+    <div class="circle circle-3" aria-hidden="true"></div>
 
-    <!-- Glassmorphic Profile Card -->
     <main class="container">
-        <!-- Avatar Wrapper -->
         <div class="avatar-wrapper">
-            <img src="images/avatar-placeholder.svg" alt="Wail Houari" class="avatar">
+            <!-- Explicit dimensions reserve layout space before the image loads to avoid layout shift -->
+            <img src="images/avatar-placeholder.svg" alt="Wail Houari" class="avatar" width="110" height="110">
         </div>
 
-        <!-- Personal Info -->
         <h1 class="name">Wail Houari</h1>
-        <p class="role">Frontend / Backend / Web Developer</p>
+        <p class="role">Aspiring Backend Developer</p>
         <p class="bio">Hello! I’m a new developer and this is my first project 🚀</p>
 
-        <!-- Social Media Buttons -->
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/wailhouari" target="_blank" rel="noopener noreferrer" class="social-btn linkedin-btn" aria-label="LinkedIn Profile">
-                <!-- Custom Crisp LinkedIn Vector Icon with clear separated 'i' -->
-                <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="4" cy="4" r="2.2"/>
-                    <rect x="2" y="8.5" width="4" height="12.5" rx="0.8"/>
-                    <path d="M9.5 8.5H13.5V10.2H13.6C14.2 9.1 15.6 8.2 17.5 8.2C21.4 8.2 22 10.8 22 14.2V21H18V14.8C18 13.3 18 11.5 15.8 11.5C13.6 11.5 13.3 13.2 13.3 14.7V21H9.5V8.5Z"/>
-                </svg>
-                <span>LinkedIn</span>
-            </a>
+        <!-- Semantic nav landmark groups external links with clear accessibility context -->
+        <nav aria-label="Social links">
+            <ul class="social-links">
+                <li>
+                    <a href="https://www.linkedin.com/in/wailhouari" target="_blank" rel="noopener noreferrer" class="social-btn linkedin-btn">
+                        <!-- focusable="false" prevents IE/legacy Edge from placing decorative SVGs in tab order -->
+                        <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                            <circle cx="4" cy="4" r="2.2"/>
+                            <rect x="2" y="8.5" width="4" height="12.5" rx="0.8"/>
+                            <path d="M9.5 8.5H13.5V10.2H13.6C14.2 9.1 15.6 8.2 17.5 8.2C21.4 8.2 22 10.8 22 14.2V21H18V14.8C18 13.3 18 11.5 15.8 11.5C13.6 11.5 13.3 13.2 13.3 14.7V21H9.5V8.5Z"/>
+                        </svg>
+                        <span>LinkedIn</span>
+                        <!-- Informs non-visual users of unexpected context change without visual clutter -->
+                        <span class="visually-hidden">(opens in a new tab)</span>
+                    </a>
+                </li>
 
-            <a href="https://www.instagram.com/wailhouari.dev/" target="_blank" rel="noopener noreferrer" class="social-btn instagram-btn" aria-label="Instagram Profile">
-                <!-- Clean Official Instagram Vector Icon -->
-                <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069M12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
-                </svg>
-                <span>Instagram</span>
-            </a>
-        </div>
+                <li>
+                    <a href="https://www.instagram.com/wailhouari.dev/" target="_blank" rel="noopener noreferrer" class="social-btn instagram-btn">
+                        <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069M12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                        </svg>
+                        <span>Instagram</span>
+                        <span class="visually-hidden">(opens in a new tab)</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </main>
 </body>
 </html>
